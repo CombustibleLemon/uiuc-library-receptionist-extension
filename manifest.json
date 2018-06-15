@@ -1,0 +1,31 @@
+{
+    "author": "Dan Leonard",
+    "manifest_version": 2,
+    "name": "UIUC Library Reception Toolkit",
+    "version": "1.0",
+
+    "description": "Provides extra features for visitor use assistants at the University of Illinois Library",
+
+    "icons": {
+        "44": "icons/icon-44.png",
+        "48": "icons/icon-48.png",
+        "50": "icons/icon-50.png",
+        "54": "icons/icon-54.png",
+        "128": "icons/icon-128.png",
+        "150": "icons/icon-150.png",
+        "176": "icons/icon-176.png"
+    },
+
+    "content_scripts": [{
+        "matches": ["*://vufind.carli.illinois.edu/all/vf-uiu/Search/*", "*://vufind.carli.illinois.edu/vf-uiu/Search/*", "*://client.desktracker.com/*"],
+        "js": [],
+        "css": []
+    }],
+
+    "options_ui": {
+        "page": "options.html"
+    },
+
+    "permissions": ["storage"]
+
+}
