@@ -23,9 +23,9 @@
     }],
 
     "options_ui": {
-        "page": "options.html"
+        "page": "options.xhtml"
     },
 
-    "permissions": ["storage"]
+    "permissions": ["storage", "webNavigation"]
 
 }
