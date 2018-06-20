@@ -2,6 +2,7 @@ var customTimestampEntryZome = document.getElementById('dTimestamp');
 var timeStampEntry = document.getElementById('sTimestampCal');
 var timeStampTime = document.getElementById('calTime');
 var timeStampAMPM = document.getElementById('calAMPM');
+var buttonSubmit = document.getElementById('dMainContent').querySelectorAll('input[type=submit]')[0];
 	
 var libraryCountTimes = [
 	'09:00am',
@@ -62,5 +63,92 @@ function addButtons() {
 	
 }
 
+function validate(e) {
+	var roomCounts = [];
+	var gateCounts = [];
+	var headCount;
+	let pane = document.getElementById('dMainContent');
+	let questions = pane.getElementsByClassName('dQuestion');
+	
+	// Retrieve all input fie
+	for (let input of questions) {
+		let qTitle = input.getElementsByClassName('dQuestionTitle_NoPadding')[0];
+		if (qTitle.innerText.substring(0,4) == "Room") {
+			roomCounts.push(input.getElementsByTagName('input')[0]);
+		} else if (qTitle.innerText == "Head/Body Count") {
+			headCount = input.getElementsByTagName('input')[0]
+		} else if (qTitle.innerText.substr(qTitle.innerText.length - 10) == "Gate Count") {
+			gateCounts.push(input.getElementsByTagName('input')[0]);
+		}
+	}
+	
+	// Test if gate count field is empty
+	if ((gateCounts[0].value == "" || gateCounts[0].value == null) && (gateCounts[1].value == "" || gateCounts[1].value == null)) {
+		console.log("No entries in gate count field");
+	
+		// Test if head count adds up
+		if (Number.isInteger(parseInt(headCount.value))) {
+			var count = 0;
+			for (let roomCount of roomCounts) {
+				if(Number.isInteger(parseInt(roomCount.value))) {
+					count += parseInt(roomCount.value);
+					console.log(count);
+				}
+			}
+			
+			if (count != parseInt(headCount.value)) {
+				dispError("Counts do not add up");
+				return;
+			}
+		} else {
+			dispError("Please enter a number into \"Head/Body Count\"");
+			return;
+		}
+	} else {
+		if (!(headCount.value == null || headCount.value == "")) {
+			dispError("Please do not combine gate and head counts");
+			return;
+		}
+		for (let roomCount of roomCounts) {
+			if (!(roomCount.value == null || roomCount.value == "")) {
+				dispError("Please do not combine gate and head counts");
+				return;
+			}
+		}
+	}
+	
+	let msg = document.createTextNode('Validation complete');
+	document.getElementById('leonard-dan-validator-lbl').innerText = null;
+	document.getElementById('leonard-dan-validator-lbl').appendChild(msg);
+}
+
+function addValidator() {
+	let row = document.createElement('tr');
+	buttonSubmit.parentNode.parentNode.parentNode.appendChild(row);
+	
+	let cell = document.createElement('td');
+	row.appendChild(cell);
+	
+	let buttonValidate = document.createElement('input');
+	buttonValidate.setAttribute('value', 'Validate');
+	buttonValidate.setAttribute('type', 'button');
+	cell.appendChild(buttonValidate);
+	
+	let errorMsg = document.createElement('em');
+	errorMsg.setAttribute('id', 'leonard-dan-validator-lbl');
+	cell.appendChild(errorMsg);
+	
+	buttonValidate.addEventListener('click', validate, false);
+}
+
+function dispError(msg) {
+	let lbl = document.getElementById('leonard-dan-validator-lbl')
+	let txt = document.createTextNode(msg);
+	
+	lbl.innerText = null;
+	lbl.appendChild(txt);
+}
+
 addButtons();
 showCustomTimestamp();
+addValidator();
