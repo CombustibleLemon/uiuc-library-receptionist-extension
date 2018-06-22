@@ -29,6 +29,11 @@ function timeButton(e) {
 
 	timeStampAMPM.value = timeSelected.substring(5,7);
 }
+
+function cleanInput() {
+	timeStampTime.value = null;
+	timeStampTime.focus();
+}
 	
 function showCustomTimestamp() {
 	// internal code here taken from inline javascript of "custom timestamp" button
@@ -152,3 +157,4 @@ function dispError(msg) {
 addButtons();
 showCustomTimestamp();
 addValidator();
+cleanInput();
