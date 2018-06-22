@@ -57,7 +57,7 @@ function addButtons() {
 	let attribution = document.createElement('small');
 	attribution.setAttribute('style', 'font-size: xx-small; font-style: italic');
 	attribution.appendChild(document.createTextNode('Buttons added by Dan, should be safe to use'));
-	timeStampEntry.appendChild(attribution);	
+	timeStampEntry.appendChild(attribution);
 	
 	customTimestampEntryZome.style.height = '75px';
 	
@@ -101,7 +101,7 @@ function validate(e) {
 				return;
 			}
 		} else {
-			dispError("Please enter a number into \"Head/Body Count\"");
+			dispError("Unless library is empty, please enter a number into \"Head/Body Count\"");
 			return;
 		}
 	} else {
@@ -130,7 +130,7 @@ function addValidator() {
 	row.appendChild(cell);
 	
 	let buttonValidate = document.createElement('input');
-	buttonValidate.setAttribute('value', 'Validate');
+	buttonValidate.setAttribute('value', 'Make sure numbers add up');
 	buttonValidate.setAttribute('type', 'button');
 	cell.appendChild(buttonValidate);
 	
