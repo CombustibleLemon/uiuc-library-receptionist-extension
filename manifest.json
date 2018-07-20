@@ -2,7 +2,7 @@
     "author": "Dan Leonard",
     "manifest_version": 2,
     "name": "UIUC Library Reception Toolkit",
-    "version": "0.1c",
+    "version": "1.0",
 
     "description": "Provides extra features for visitor use assistants at the University of Illinois Library",
 
