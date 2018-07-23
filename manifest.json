@@ -19,7 +19,7 @@
     "content_scripts": [{
         "matches": ["*://vufind.carli.illinois.edu/all/vf-uiu/Search/*", "*://vufind.carli.illinois.edu/vf-uiu/Search/*", "*://client.desktracker.com/*"],
         "js": ["catalog.js", "desktracker.js"],
-        "css": []
+        "css": ["catalog.css"]
     }],
 
     "options_ui": {

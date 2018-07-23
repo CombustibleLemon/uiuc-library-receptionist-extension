@@ -1,6 +1,17 @@
 var topMatter = document.getElementById('yui-main');
 var searchArea = topMatter.getElementsByClassName('topcol1')[0];
 
+/*
+var localLib = {
+	name: 'UIUC'
+};
+*/
+
+var localDept = {
+	name: 'IAS',
+	code: 'uiu_ias'
+};
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -28,32 +39,37 @@ function addButtons() {
 	let btnDiv = document.createElement('div');
 	searchArea.appendChild(btnDiv);
 
-	let newBtnUIUC = document.createElement('input')
-	newBtnUIUC.setAttribute('type', 'button');
-	newBtnUIUC.setAttribute('value', 'UIUC Holdings Only');
-	newBtnUIUC.addEventListener('click', clickUIUC, false);
-	btnDiv.appendChild(newBtnUIUC);
+	/*
+	let newBtnLocalLib = document.createElement('input')
+	newBtnLocalLib.setAttribute('type', 'button');
+	newBtnLocalLib.setAttribute('value', localLib.name + ' Holdings Only');
+	newBtnLocalLib.addEventListener('click', clickLocalLib, false);
+	btnDiv.appendChild(newBtnLocalLib);
+	*/
 
-	let newBtnIAS = document.createElement('input')
-	newBtnIAS.setAttribute('type', 'button');
-	newBtnIAS.setAttribute('value', 'IAS Holdings Only');
-	newBtnIAS.addEventListener('click', clickIAS, false);
-	if(window.location.href.indexOf("uiu_ias") > -1) {
-		newBtnIAS.setAttribute('disabled', 'disabled');
+	let newBtnLocalDept = document.createElement('input')
+	newBtnLocalDept.setAttribute('class', 'libExt-button')
+	newBtnLocalDept.setAttribute('type', 'button');
+	newBtnLocalDept.setAttribute('value', localDept.name + ' Holdings Only');
+	newBtnLocalDept.addEventListener('click', clickLocalDept, false);
+	if(window.location.href.indexOf("uiu_LocalDept") > -1) {
+		newBtnLocalDept.setAttribute('disabled', 'disabled');
 	}
-	btnDiv.appendChild(newBtnIAS);
+	btnDiv.appendChild(newBtnLocalDept);
 
+	/*
 	let newBtnIShare = document.createElement('input')
 	newBtnIShare.setAttribute('type', 'button');
 	newBtnIShare.setAttribute('value', 'I-Share');
 	newBtnIShare.addEventListener('click', clickIShare, false);
 	btnDiv.appendChild(newBtnIShare);
+	*/
 }
 
-function clickUIUC(e) {}
+//function clickLocalLib(e) {}
 
-function clickIAS(e) {
-	if(getParameterByName('filter[]') == "locations:\"uiu_ias\"") {
+function clickLocalDept(e) {
+	if(getParameterByName('filter[]') == 'locations:\"' + localDept.code + '\"') {
 		return;
 	}
 
@@ -61,6 +77,6 @@ function clickIAS(e) {
 	window.location.href = destination;
 }
 
-function clickIShare(e) {}
+//function clickIShare(e) {}
 
 addButtons();

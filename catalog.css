@@ -1,0 +1,46 @@
+.libExt-button {
+	background-color: transparent;
+	background-image: none;
+	border-bottom-color: rgb(255, 117, 24);
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-image-outset: 0 0 0 0;
+	border-image-repeat: stretch stretch;
+	border-image-slice: 100% 100% 100% 100%;
+	border-image-source: none;
+	border-image-width: 1 1 1 1;
+	border-left-color: rgb(255, 117, 24);
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: rgb(255, 117, 24);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: rgb(255, 117, 24);
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	box-sizing: border-box;
+	color: rgb(255, 117, 24);
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Segoe UI","Source Sans Pro",Calibri,Candara,Arial,sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 22.5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow: visible;
+	overflow-x: visible;
+	overflow-y: visible;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 6px;
+	text-align: center;
+	text-transform: none
+}
