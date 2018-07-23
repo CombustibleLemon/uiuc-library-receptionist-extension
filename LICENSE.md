@@ -1,10 +1,10 @@
-#Copyright License
+# Copyright License
 
-##Software
+## Software
 
 All software contained in this work has been created by an employee of the University of Illinois at work in semi-official capacity and thus reuse is bound to any relevant laws.
 
-##Images
+## Images
 
 The “Block I” logo is a creation of the State of Illinois and owned by the Board of Trustees of the University of Illinois.
 
